@@ -47,7 +47,44 @@ namespace Seminar5HomeWork
             //Задайте одномерный массив, заполненный случайными числами. 
             //Найдите сумму элементов, стоящих на нечетных позициях.
             
-            int [] CreateArray (int size, int min, int max){
+            // int [] CreateArray (int size, int min, int max){
+            //     int [] array = new int [size];
+            //         for (int i=0; i<size; i++){
+            //             array [i] = new Random().Next(min, max+1);
+            //         }
+            //     return array;
+            // }
+
+            // void ShowArray (int[] array){
+            //     for (int i = 0; i<array.Length; i++){
+            //         Console.Write($"{array[i]} ");
+            //     }
+            // }
+
+            // int PlaceSum (int [] array){
+            //     int res = 0;
+            //     for (int i = 0; i < array.Length; i++){
+            //         if (i % 2 == 0) res+= array[i];
+            //     }
+            //     return res;
+            // }
+
+            // Console.WriteLine ("Введите два числа: ");
+            // int min = Convert.ToInt32(Console.ReadLine());
+            // int max = Convert.ToInt32(Console.ReadLine());
+            // Console.WriteLine ("Введите количество элементов: ");
+            // int size = Convert.ToInt32(Console.ReadLine());
+            
+            // int [] array = CreateArray(size,min,max);
+            // ShowArray (array);
+
+            // int result = PlaceSum (array);
+            // Console.WriteLine();
+            // Console.WriteLine ($"Сумма элементов, находящихся на нечетных позициях:" + result);
+
+            //Задайте массив вещественных чисел. Найдите разницу между максимальным и минимальным элементом массива
+
+             int [] CreateArray (int size, int min, int max){
                 int [] array = new int [size];
                     for (int i=0; i<size; i++){
                         array [i] = new Random().Next(min, max+1);
@@ -61,14 +98,23 @@ namespace Seminar5HomeWork
                 }
             }
 
-            int PlaceSum (int [] array){
-                int res = 0;
-                for (int i = 0; i < array.Length; i++){
-                    if (i % 2 == 0) res+= array[i];
+            int Max (int [] array){
+                int max = array [0];
+                for (int i = 0; i<array.Length; i++){
+                    if (max < array [i]) max = array [i] ;
                 }
-                return res;
+            return max;
             }
 
+            int Min (int [] array){
+                int min = array [0];
+                for (int i = 0; i<array.Length; i++){
+                    if (min > array [i]) min = array [i] ;
+                }
+            return min;
+            }
+
+            
             Console.WriteLine ("Введите два числа: ");
             int min = Convert.ToInt32(Console.ReadLine());
             int max = Convert.ToInt32(Console.ReadLine());
@@ -77,10 +123,16 @@ namespace Seminar5HomeWork
             
             int [] array = CreateArray(size,min,max);
             ShowArray (array);
-
-            int result = PlaceSum (array);
             Console.WriteLine();
-            Console.WriteLine ($"Сумма элементов, находящихся на нечетных позициях:" + result);
+
+            int maxel = Max (array);
+            Console.WriteLine ("Максимальное число " + maxel);
+            int minel = Min (array);
+            Console.WriteLine ("Минимальное число " + minel);
+            int result = maxel - minel;
+            Console.WriteLine();
+            Console.WriteLine ($"Разница между максимальным и минимальным элементом равна:" + result);
+
 
 
            
